@@ -14,5 +14,28 @@ function addText() {
 	output.appendChild(newButton)
 }
 
-searchButton.addEventListener('click',addText)
+searchButton.addEventListener('click' , addText)
 
+var outputNum = document.getElementById('badgeCounter')
+var counter = 0;
+function addBadgeCounter() {
+	let newBadge = document.createElement('badge')
+	// newBadge.classList.add('badge-bg-danger')
+	newBadge.setAttribute('Danger', counter)
+	newBadge.innerText = counter
+	counter = counter + 1
+	newBadge.innerText = counter
+	outputNum.appendChild(newBadge)
+}
+
+function clearText(){
+    outputNum.innerText = ''
+}
+
+document.getElementById('searchButton').onclick = function(e) {
+	clearText();
+    addBadgeCounter();
+	
+}
+
+inputText.addEventListener('blur' , addText)
